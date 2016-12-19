@@ -4,15 +4,106 @@
 	<meta charset="UTF-8">
 	<title>sxBarrage</title>
 </head>
+<style type="text/css">
+
+html { font-size: 62.5%; }
+/* 格式化样式 */
+* { margin: 0; padding: 0; font-family: "微软雅黑"; }
+	
+/* 盛放的大容器 */
+.viewport {
+	height: 100%;
+	border: 0.1rem solid pink;
+	
+}
+
+/* 播放窗口的样式 */
+.playWindow {
+	width: 100%;
+	height: 51rem;
+}
+
+/* 弹幕插件的容器 */
+.barrageWarp {
+	position: absolute;
+	top: 0;
+	left: 0;
+	box-sizing: border-box;
+	width: 100%;
+	height: 45rem;
+}
+
+
+
+/* 展现弹幕文字的窗口 */
+.showText {
+	height:40rem;
+	background-color: transparent;/* rgba(0,0,0,0) */
+	font-size: 5rem;
+}
+
+/* 输入提交区域 */
+.inputCon {
+	width: 100%;
+	display: flex;
+}
+.inputTextBox, .submitCom {
+	font-size: 2.4rem;
+}
+/* 输入框样式的展现 */
+.inputTextBox {
+	flex: 1;
+	box-sizing: border-box;
+	padding: 0 1rem;
+	height: 5rem;
+	border: 0.1rem solid rgba(157,241,231,0.5);
+	background-color: rgba(12,24,48,0.5);
+	color: rgba(157,241,231,1);
+	line-height: 4.8rem;
+
+	outline: none;  /* 取消聚焦的效果 */
+	resize:none; /* 取消可拖动放大，去掉了右下角的可拖动的标志 */
+}
+.inputTextBox::-webkit-input-placeholder {
+	color: rgba(157,241,231,0.3);
+}
+/* 评论提交按钮 */
+.submitCom {
+	box-sizing: border-box;
+	width: 10rem;
+	height: 5rem;
+	border: 0;
+	background-color: rgba(157,241,231,0.3);
+	color: rgba(157,241,231,0.7);
+	outline: none;  /* 取消聚焦的效果 */
+}
+
+</style>
 <!-- 连接node服务器 -->
 <script type="text/javascript" src="conn/conn.js"></script>
 <!-- 连接node服务器 end -->
 <body>
-<div>
-	<p>一个实时弹幕插件</p>
-	<video src="vedio/movie.ogg" width="320" height="240" controls="controls" style="background-color: pink;">
-	Your browser does not support the video tag.
-	</video>
+<div class="viewport">
+	<div>
+		<video src="vedio/movie.ogg" width="100%" controls="controls" class="playWindow">
+		Your browser does not support , please change brower!
+		</video>
+	</div>
+	
+
+	<div class="barrageWarp">
+		<div class="showText">
+			safdsaafasfdsa
+		</div>
+		<form>
+			<div class="inputCon">
+				<textarea  rows="2" cols="20" class="inputTextBox" placeholder="一次评论最多可以输入30字哦"></textarea>
+				<input type="button" name="submitCom" class="submitCom" value="评论">
+			</div>
+		</form>
+	</div>
+
+		
 
 </div>	
 </body>
