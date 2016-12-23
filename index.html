@@ -2,81 +2,13 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <meta name="apple-touch-fullscreen" content="YES" />
 	<title>sxBarrage</title>
 </head>
+<link rel="stylesheet" type="text/css" href="css/sxBarrage.css">
+<link rel="stylesheet" type="text/css" href="css/sxBarrageAnimation.css">
 <style type="text/css">
-
-html { font-size: 62.5%; }
-/* 格式化样式 */
-* { margin: 0; padding: 0; font-family: "微软雅黑"; }
-	
-/* 盛放的大容器 */
-.viewport {
-	height: 100%;
-	border: 0.1rem solid pink;
-	
-}
-
-/* 播放窗口的样式 */
-.playWindow {
-	width: 100%;
-	height: 51rem;
-}
-
-/* 弹幕插件的容器 */
-.barrageWarp {
-	position: absolute;
-	top: 0;
-	left: 0;
-	box-sizing: border-box;
-	width: 100%;
-	height: 45rem;
-}
-
-
-
-/* 展现弹幕文字的窗口 */
-.showText {
-	height:40rem;
-	background-color: transparent;/* rgba(0,0,0,0) */
-	font-size: 5rem;
-}
-
-/* 输入提交区域 */
-.inputCon {
-	width: 100%;
-	display: flex;
-}
-.inputTextBox, .submitCom {
-	font-size: 2.4rem;
-}
-/* 输入框样式的展现 */
-.inputTextBox {
-	flex: 1;
-	box-sizing: border-box;
-	padding: 0 1rem;
-	height: 5rem;
-	border: 0.1rem solid rgba(157,241,231,0.5);
-	background-color: rgba(12,24,48,0.5);
-	color: rgba(157,241,231,1);
-	line-height: 4.8rem;
-
-	outline: none;  /* 取消聚焦的效果 */
-	resize:none; /* 取消可拖动放大，去掉了右下角的可拖动的标志 */
-}
-.inputTextBox::-webkit-input-placeholder {
-	color: rgba(157,241,231,0.3);
-}
-/* 评论提交按钮 */
-.submitCom {
-	box-sizing: border-box;
-	width: 10rem;
-	height: 5rem;
-	border: 0;
-	background-color: rgba(157,241,231,0.3);
-	color: rgba(157,241,231,0.7);
-	outline: none;  /* 取消聚焦的效果 */
-}
 
 </style>
 <!-- 连接node服务器 -->
@@ -92,19 +24,35 @@ html { font-size: 62.5%; }
 	
 
 	<div class="barrageWarp">
-		<div class="showText">
+		<!-- 显示评论区 -->
+		<div class="showTextCon">
 			safdsaafasfdsa
 		</div>
+		<!-- 显示评论区 end -->
+		
+		<!-- 编辑提交区 整个区域如果手指没有在屏幕上出现，则5s后隐藏；手指接触屏幕，展现，动画效果为渐隐渐现 -->
 		<form>
 			<div class="inputCon">
 				<textarea  rows="2" cols="20" class="inputTextBox" placeholder="一次评论最多可以输入30字哦"></textarea>
+				<img class="cancel" src="imgs/cancel.png">
 				<input type="button" name="submitCom" class="submitCom" value="评论">
 			</div>
 		</form>
+		<!-- 编辑提交区 end -->
+
+		<!-- 设置动画效果、文字颜色的层 inputTextBox 聚焦出现 -->
+		<div class="setAnim">
+				设置动画效果、文字颜色的层
+		</div>
+		<!-- 设置动画效果、文字颜色的层 end -->
+
 	</div>
 
 		
 
-</div>	
+</div>
+<script type="text/javascript" src="js/sxBarrageBottom.js" ></script>
+<script type="text/javascript" src="js/sxBarrage.js" ></script>
+<script type="text/javascript" src="js/sxBarrageAnimation.js" ></script>
 </body>
 </html>
